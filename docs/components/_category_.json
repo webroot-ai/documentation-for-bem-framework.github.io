@@ -1,0 +1,12 @@
+{
+  "label": "🧩 Components",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "className": "sidebar-components",
+  "link": {
+    "type": "generated-index",
+    "title": "Component Library",
+    "description": "Pre-built UI components using BEM methodology with SCSS."
+  }
+}
