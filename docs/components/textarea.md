@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 sidebar_label: "Textarea"
 ---
 
@@ -64,7 +64,7 @@ Use `.textarea--success` to indicate valid input.
 <div className="component-preview component-preview--center">
   <div className="textarea textarea--success">
     <label className="textarea__label">Feedback</label>
-    <textarea className="textarea__field">Great service!</textarea>
+    <textarea className="textarea__field" defaultValue="Great service!"></textarea>
     <div className="textarea__info">
         <span className="textarea__success">Feedback saved!</span>
     </div>
@@ -160,7 +160,7 @@ The `__counter` element supports `--warning` and `--danger` states.
 
 <div className="textarea textarea--error">
     <label className="textarea__label">Error State</label>
-    <textarea className="textarea__field">Text is way too long for this field so we show an error.</textarea>
+    <textarea className="textarea__field" defaultValue="Text is way too long for this field so we show an error."></textarea>
     <div className="textarea__info">
         <span className="textarea__error">Limit exceeded</span>
         <span className="textarea__counter textarea__counter--danger">150/100</span>
@@ -204,10 +204,10 @@ Control how the user can resize the textarea. the
 
 ```html
 <div class="textarea textarea--resize-both">
-  <textarea class="textarea__field"></textarea>
+  <textarea class="textarea__field" defaultValue=""></textarea>
 </div>
 <div class="textarea textarea--resize-x">
-  <textarea class="textarea__field"></textarea>
+  <textarea class="textarea__field" defaultValue=""></textarea>
 </div>
 <div class="textarea textarea--resize-y">
   <textarea class="textarea__field"></textarea>
@@ -271,11 +271,11 @@ The label creates a "cut-out" effect on the top border.
 <div className="component-preview component-preview--column">
   <div className="textarea textarea--readonly">
     <label className="textarea__label">Readonly</label>
-    <textarea className="textarea__field" readonly>Thie text cannot be edited.</textarea>
+    <textarea className="textarea__field" readOnly defaultValue="Thie text cannot be edited."></textarea>
   </div>
    <div className="textarea">
     <label className="textarea__label">Disabled</label>
-    <textarea className="textarea__field" disabled>This input is disabled.</textarea>
+    <textarea className="textarea__field" disabled defaultValue="This input is disabled."></textarea>
   </div>
 </div>
 

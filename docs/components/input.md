@@ -144,7 +144,7 @@ Use `.input--error` to indicate invalid input. The border, label, and any accomp
 <div className="component-preview component-preview--center">
   <div className="input input--error">
     <label className="input__label">Email</label>
-    <input className="input__field" type="email" value="invalid-email" />
+    <input className="input__field" type="email" defaultValue="invalid-email" />
      <div className="input__info">
         <span className="input__error">Please enter a valid email address.</span>
     </div>
@@ -168,7 +168,7 @@ Use `.input--success` to indicate valid input.
 <div className="component-preview component-preview--center">
   <div className="input input--success">
     <label className="input__label">Username</label>
-    <input className="input__field" type="text" value="validuser123" />
+    <input className="input__field" type="text" defaultValue="validuser123" />
     <div className="input__info">
         <span className="input__success">Username is available!</span>
     </div>
@@ -224,14 +224,14 @@ Display a character counter using `.input__counter`. It supports `input__counter
   </div>
    <div className="input">
     <label className="input__label">Title (Warning)</label>
-    <input className="input__field" type="text" value="Almost too long..." />
+    <input className="input__field" type="text" defaultValue="Almost too long..." />
     <div className="input__info">
         <span className="input__counter input__counter--warning">90/100</span>
     </div>
   </div>
      <div className="input input--error">
     <label className="input__label">Title (Danger)</label>
-    <input className="input__field" type="text" value="Way too long..." />
+    <input className="input__field" type="text" defaultValue="Way too long..." />
     <div className="input__info">
         <span className="input__error">Limit exceeded</span>
         <span className="input__counter input__counter--danger">105/100</span>

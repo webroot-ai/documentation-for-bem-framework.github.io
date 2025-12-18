@@ -52,6 +52,14 @@ p {
 .card {
   background: unset;
 }
+
+.breadcrumbs__link {
+  font-size: unset;
+}
+
+.breadcrumbs__link svg {
+  vertical-align: unset;
+}
 /* =============================================
    Component Preview Container
    ============================================= */
