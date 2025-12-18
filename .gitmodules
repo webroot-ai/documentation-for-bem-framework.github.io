@@ -1,0 +1,3 @@
+[submodule "bem-scss-framework"]
+	path = bem-scss-framework
+	url = https://github.com/webroot-ai/bem-scss-framework.git
