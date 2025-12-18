@@ -65,7 +65,12 @@ const config: Config = {
         alt: " Webroot Logo",
         src: "img/webroot-logo.svg",
       },
-      items: [{}],
+      items: [
+        {
+          to: "/",
+          label: "Docs",
+        },
+      ],
     },
     footer: {
       style: "dark",

@@ -96,12 +96,23 @@ Use the `.textarea__info` container to display helper text and character counter
     </div>
   </div>
 </div>
+```html
+<div class="textarea">
+  <label class="textarea__label">Bio</label>
+  <textarea class="textarea__field"></textarea>
+  <div class="textarea__info">
+    <span class="textarea__helper">Tell us a bit about yourself.</span>
+  </div>
+</div>
+```
 
 ### Character Counter
 
 The `__counter` element supports `--warning` and `--danger` states.
 
-<div className="component-preview component-preview--column">
+### Basic Counter
+
+<div className="component-preview component-preview--center">
   <div className="textarea">
     <label className="textarea__label">Review</label>
     <textarea className="textarea__field"></textarea>
@@ -110,26 +121,7 @@ The `__counter` element supports `--warning` and `--danger` states.
         <span className="textarea__counter">0/100</span>
     </div>
   </div>
-
-   <div className="textarea">
-    <label className="textarea__label">Warning State</label>
-    <textarea className="textarea__field">Almost at the limit...</textarea>
-    <div className="textarea__info">
-        <span className="textarea__counter textarea__counter--warning">90/100</span>
-    </div>
-  </div>
-
-     <div className="textarea textarea--error">
-    <label className="textarea__label">Error State</label>
-    <textarea className="textarea__field">Text is way too long for this field so we show an error.</textarea>
-    <div className="textarea__info">
-        <span className="textarea__error">Limit exceeded</span>
-        <span className="textarea__counter textarea__counter--danger">150/100</span>
-    </div>
-
-  </div>
 </div>
-
 ```html
 <div class="textarea">
   <label class="textarea__label">Review</label>
@@ -137,6 +129,50 @@ The `__counter` element supports `--warning` and `--danger` states.
   <div class="textarea__info">
     <span class="textarea__helper">Max 100 chars</span>
     <span class="textarea__counter">0/100</span>
+  </div>
+</div>
+```
+
+### Warning Counter
+
+<div className="component-preview component-preview--center">
+  <div className="textarea">
+    <label className="textarea__label">Review</label>
+    <textarea className="textarea__field"></textarea>
+    <div className="textarea__info">
+        <span className="textarea__helper">Max 100 chars</span>
+        <span className="textarea__counter textarea__counter--warning">0/100</span>
+    </div>
+  </div>
+</div>
+```html
+<div class="textarea">
+  <label class="textarea__label">Review</label>
+  <textarea class="textarea__field"></textarea>
+  <div class="textarea__info">
+    <span class="textarea__helper">Max 100 chars</span>
+    <span class="textarea__counter textarea__counter--warning">0/100</span>
+  </div>
+</div>
+```
+
+### Error State
+
+<div className="textarea textarea--error">
+    <label className="textarea__label">Error State</label>
+    <textarea className="textarea__field">Text is way too long for this field so we show an error.</textarea>
+    <div className="textarea__info">
+        <span className="textarea__error">Limit exceeded</span>
+        <span className="textarea__counter textarea__counter--danger">150/100</span>
+    </div>
+</div>
+```html
+<div class="textarea textarea--error">
+  <label class="textarea__label">Error state</label>
+  <textarea class="textarea__field">Text is way too long for this field so we show an error.</textarea>
+  <div class="textarea__info">
+    <span class="textarea__error">Limit exceeded</span>
+    <span class="textarea__counter textarea__counter--danger">150/100</span>
   </div>
 </div>
 ```
@@ -167,6 +203,12 @@ Control how the user can resize the textarea. the
 </div>
 
 ```html
+<div class="textarea textarea--resize-both">
+  <textarea class="textarea__field"></textarea>
+</div>
+<div class="textarea textarea--resize-x">
+  <textarea class="textarea__field"></textarea>
+</div>
 <div class="textarea textarea--resize-y">
   <textarea class="textarea__field"></textarea>
 </div>
