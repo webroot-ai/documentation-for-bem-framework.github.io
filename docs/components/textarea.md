@@ -204,10 +204,10 @@ Control how the user can resize the textarea. the
 
 ```html
 <div class="textarea textarea--resize-both">
-  <textarea class="textarea__field" defaultValue=""></textarea>
+  <textarea class="textarea__field"></textarea>
 </div>
 <div class="textarea textarea--resize-x">
-  <textarea class="textarea__field" defaultValue=""></textarea>
+  <textarea class="textarea__field"></textarea>
 </div>
 <div class="textarea textarea--resize-y">
   <textarea class="textarea__field"></textarea>
