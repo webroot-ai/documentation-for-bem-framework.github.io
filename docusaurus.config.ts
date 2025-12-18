@@ -44,8 +44,6 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           routeBasePath: "/",
-          editUrl:
-            "https://github.com/webroot-ai/documentation-for-bem-framework/tree/main/",
         },
 
         theme: {
@@ -67,14 +65,7 @@ const config: Config = {
         alt: " Webroot Logo",
         src: "img/webroot-logo.svg",
       },
-      items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Tutorial",
-        },
-      ],
+      items: [{}],
     },
     footer: {
       style: "dark",

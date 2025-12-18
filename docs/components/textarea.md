@@ -5,128 +5,193 @@ sidebar_label: "Textarea"
 
 # Textarea
 
-A multi-line text input component that supports various sizes, validation states, and floating label interactions.
+A flexible multi-line text input component that supports various sizes, states, character counts, and floating label interactions following BEM methodology.
 
 ## Base Usage
 
-The base `.textarea` class provides a standard multi-line input field.
+The base `.textarea` component consists of a container with a `__field` element. Labels and helper text should be added for accessibility and clarity.
 
 <div className="component-preview component-preview--center">
-  <textarea className="textarea" placeholder="Enter your comments..." rows="5" cols="30"></textarea>
+  <div className="textarea">
+    <label className="textarea__label" htmlFor="base-textarea">Description</label>
+    <textarea className="textarea__field" id="base-textarea" placeholder="Enter your comments..."></textarea>
+  </div>
 </div>
 
 ```html
-<textarea
-  class="textarea"
-  placeholder="Enter your comments..."
-  rows="5"
-  cols="30"
-></textarea>
+<div class="textarea">
+  <label class="textarea__label" for="base-textarea">Description</label>
+  <textarea
+    class="textarea__field"
+    id="base-textarea"
+    placeholder="Enter your comments..."
+  ></textarea>
+</div>
 ```
 
 ## Validation States
 
-Provide visual feedback for form validation using success and error states.
+Provide visual feedback using validation state modifiers on the `.textarea` wrapper.
 
 ### Error State
 
-Add `.textarea--error` to indicate an invalid input.
+Use `.textarea--error` to indicate invalid input. The border, label, and any accompanying error message will use the error color.
 
 <div className="component-preview component-preview--center">
-  <textarea className="textarea textarea--error" placeholder="Invalid input..." rows="5" cols="30"></textarea>
+  <div className="textarea textarea--error">
+    <label className="textarea__label">Comment</label>
+    <textarea className="textarea__field" placeholder="Enter comment..."></textarea>
+     <div className="textarea__info">
+        <span className="textarea__error">This field is required.</span>
+    </div>
+  </div>
 </div>
 
 ```html
-<textarea
-  class="textarea textarea--error"
-  placeholder="Invalid input..."
-></textarea>
+<div class="textarea textarea--error">
+  <label class="textarea__label">Comment</label>
+  <textarea class="textarea__field" placeholder="Enter comment..."></textarea>
+  <div class="textarea__info">
+    <span class="textarea__error">This field is required.</span>
+  </div>
+</div>
 ```
 
 ### Success State
 
-Add `.textarea--success` to indicate a valid input.
+Use `.textarea--success` to indicate valid input.
 
 <div className="component-preview component-preview--center">
-  <textarea className="textarea textarea--success" placeholder="Valid input..." rows="5" cols="30"></textarea>
+  <div className="textarea textarea--success">
+    <label className="textarea__label">Feedback</label>
+    <textarea className="textarea__field">Great service!</textarea>
+    <div className="textarea__info">
+        <span className="textarea__success">Feedback saved!</span>
+    </div>
+  </div>
 </div>
 
 ```html
-<textarea
-  class="textarea textarea--success"
-  placeholder="Valid input..."
-></textarea>
+<div class="textarea textarea--success">
+  <label class="textarea__label">Feedback</label>
+  <textarea class="textarea__field">Great service!</textarea>
+  <div class="textarea__info">
+    <span class="textarea__success">Feedback saved!</span>
+  </div>
+</div>
 ```
 
-## Size Variants
+## Helper Text & Character Counter
 
-Control the font size and padding using size modifiers.
+Use the `.textarea__info` container to display helper text and character counters.
+
+### Basic Helper
 
 <div className="component-preview component-preview--center">
-  <textarea className="textarea textarea--xs" placeholder="Extra Small" rows="2"></textarea>
-  <textarea className="textarea textarea--sm" placeholder="Small" rows="2"></textarea>
-  <textarea className="textarea" placeholder="Default" rows="2"></textarea>
-  <textarea className="textarea textarea--lg" placeholder="Large" rows="2"></textarea>
-  <textarea className="textarea textarea--xl" placeholder="Extra Large" rows="2"></textarea>
+  <div className="textarea">
+    <label className="textarea__label">Bio</label>
+    <textarea className="textarea__field"></textarea>
+    <div className="textarea__info">
+        <span className="textarea__helper">Tell us a bit about yourself.</span>
+    </div>
+  </div>
 </div>
 
-| Size        | Class           | Description                |
-| ----------- | --------------- | -------------------------- |
-| Extra Small | `.textarea--xs` | Compact padding & text     |
-| Small       | `.textarea--sm` | Slightly smaller than base |
-| Default     | `.textarea`     | Standard size              |
-| Large       | `.textarea--lg` | Larger padding & text      |
-| Extra Large | `.textarea--xl` | Maximum padding & text     |
+### Character Counter
 
-```html
-<textarea class="textarea textarea--xs" placeholder="Extra Small"></textarea>
-<textarea class="textarea textarea--sm" placeholder="Small"></textarea>
-<textarea class="textarea" placeholder="Default"></textarea>
-<textarea class="textarea textarea--lg" placeholder="Large"></textarea>
-<textarea class="textarea textarea--xl" placeholder="Extra Large"></textarea>
-```
-
-## Layout Modifiers
-
-### Fluid Width
-
-Use `.textarea--fluid` to make the textarea take up 100% of its container's width.
+The `__counter` element supports `--warning` and `--danger` states.
 
 <div className="component-preview component-preview--column">
-  <textarea className="textarea textarea--fluid" placeholder="Full width textarea..."></textarea>
+  <div className="textarea">
+    <label className="textarea__label">Review</label>
+    <textarea className="textarea__field"></textarea>
+    <div className="textarea__info">
+        <span className="textarea__helper">Max 100 chars</span>
+        <span className="textarea__counter">0/100</span>
+    </div>
+  </div>
+
+   <div className="textarea">
+    <label className="textarea__label">Warning State</label>
+    <textarea className="textarea__field">Almost at the limit...</textarea>
+    <div className="textarea__info">
+        <span className="textarea__counter textarea__counter--warning">90/100</span>
+    </div>
+  </div>
+
+     <div className="textarea textarea--error">
+    <label className="textarea__label">Error State</label>
+    <textarea className="textarea__field">Text is way too long for this field so we show an error.</textarea>
+    <div className="textarea__info">
+        <span className="textarea__error">Limit exceeded</span>
+        <span className="textarea__counter textarea__counter--danger">150/100</span>
+    </div>
+
+  </div>
 </div>
 
 ```html
-<textarea
-  class="textarea textarea--fluid"
-  placeholder="Full width textarea..."
-></textarea>
+<div class="textarea">
+  <label class="textarea__label">Review</label>
+  <textarea class="textarea__field"></textarea>
+  <div class="textarea__info">
+    <span class="textarea__helper">Max 100 chars</span>
+    <span class="textarea__counter">0/100</span>
+  </div>
+</div>
+```
+
+## Resize Modifiers
+
+Control how the user can resize the textarea. the
+
+| Modifier                 | Description                     |
+| :----------------------- | :------------------------------ |
+| `.textarea--resize-both` | Allows resizing both dimensions |
+| `.textarea--resize-x`    | Allows horizontal resizing      |
+| `.textarea--resize-y`    | Allows vertical resizing        |
+
+<div className="component-preview component-preview--center">
+  <div className="textarea textarea--resize-both">
+    <label className="textarea__label">Resize vertically and horizontally</label>
+    <textarea className="textarea__field"></textarea>
+  </div>
+  <div className="textarea textarea--resize-x">
+    <label className="textarea__label">Resize horizontally</label>
+    <textarea className="textarea__field"></textarea>
+  </div>
+  <div className="textarea textarea--resize-y">
+    <label className="textarea__label">Vertical Only</label>
+    <textarea className="textarea__field"></textarea>
+  </div>
+</div>
+
+```html
+<div class="textarea textarea--resize-y">
+  <textarea class="textarea__field"></textarea>
+</div>
 ```
 
 ## Floating Labels
 
-The framework supports three types of floating label interactions. These require a specific HTML structure:
-
-1. Wrap the textarea and label in a `.textarea-wrapper` container.
-2. Place the `<label>` **after** the `<textarea>` in the DOM.
-3. Add the `.textarea__label` class to the label.
-4. Add the `placeholder=" "` attribute (single space) to the textarea to trigger the CSS state detection.
+The framework supports three types of floating label interactions.
+**Note:** For floating labels to work, the `<label>` must come **after** the `<textarea>` in the HTML, and the textarea needs a placeholder (can be empty space).
 
 ### Over Label
 
 The label floats from inside the textarea to above it.
 
 <div className="component-preview component-preview--center">
-  <div className="textarea-wrapper">
-    <textarea className="textarea over-label" placeholder=" " id="over-label-ex"></textarea>
+  <div className="textarea textarea--over-label">
+    <textarea className="textarea__field" placeholder=" " id="over-label-ex"></textarea>
     <label className="textarea__label" htmlFor="over-label-ex">Over Label</label>
   </div>
 </div>
 
 ```html
-<div class="textarea-wrapper">
-  <textarea class="textarea over-label" placeholder=" " id="comment"></textarea>
-  <label class="textarea__label" for="comment">Type your comment</label>
+<div class="textarea textarea--over-label">
+  <textarea class="textarea__field" placeholder=" " id="desc"></textarea>
+  <label class="textarea__label" for="desc">Description</label>
 </div>
 ```
 
@@ -135,102 +200,49 @@ The label floats from inside the textarea to above it.
 The label moves to the top-inner corner of the textarea.
 
 <div className="component-preview component-preview--center">
-  <div className="textarea-wrapper">
-    <textarea className="textarea in-label" placeholder=" " id="in-label-ex"></textarea>
+  <div className="textarea textarea--in-label">
+    <textarea className="textarea__field" placeholder=" " id="in-label-ex"></textarea>
     <label className="textarea__label" htmlFor="in-label-ex">In Label</label>
   </div>
 </div>
-
-```html
-<div class="textarea-wrapper">
-  <textarea class="textarea in-label" placeholder=" " id="comment"></textarea>
-  <label class="textarea__label" for="comment">Type your comment</label>
-</div>
-```
 
 ### On Label
 
 The label creates a "cut-out" effect on the top border.
 
 <div className="component-preview component-preview--center">
-  <div className="textarea-wrapper">
-    <textarea className="textarea on-label" placeholder=" " id="on-label-ex"></textarea>
+  <div className="textarea textarea--on-label">
+    <textarea className="textarea__field" placeholder=" " id="on-label-ex"></textarea>
     <label className="textarea__label" htmlFor="on-label-ex">On Label</label>
   </div>
 </div>
 
 ```html
-<div class="textarea-wrapper">
-  <textarea class="textarea on-label" placeholder=" " id="comment"></textarea>
-  <label class="textarea__label" for="comment">Type your comment</label>
+<div class="textarea textarea--on-label">
+  <textarea class="textarea__field" placeholder=" " id="notes"></textarea>
+  <label class="textarea__label" for="notes">Notes</label>
 </div>
 ```
 
-## Resize
+## Readonly & Disabled
 
-The textarea can be resized using the `resize` modifier. This default state lets you resize the textarea both horizontally and vertically. By default, the textarea is not resizable.
-
-<div className="component-preview component-preview--center">
-  <textarea className="textarea textarea--resize" placeholder="Enter your comments..." rows="5" cols="30"></textarea>
-</div>
-
-```html
-<textarea
-  class="textarea textarea--resize"
-  placeholder="Enter your comments..."
-  rows="5"
-  cols="30"
-></textarea>
-```
-
-### Resize X
-
-The textarea can be resized horizontally using the `resize-x` modifier.
-
-<div className="component-preview component-preview--center">
-  <textarea className="textarea textarea--resize-x" placeholder="Enter your comments..." rows="5" cols="30"></textarea>
+<div className="component-preview component-preview--column">
+  <div className="textarea textarea--readonly">
+    <label className="textarea__label">Readonly</label>
+    <textarea className="textarea__field" readonly>Thie text cannot be edited.</textarea>
+  </div>
+   <div className="textarea">
+    <label className="textarea__label">Disabled</label>
+    <textarea className="textarea__field" disabled>This input is disabled.</textarea>
+  </div>
 </div>
 
 ```html
-<textarea
-  class="textarea textarea--resize-x"
-  placeholder="Enter your comments..."
-  rows="5"
-  cols="30"
-></textarea>
-```
-
-### Resize Y
-
-The textarea can be resized vertically using the `resize-y` modifier.
-
-<div className="component-preview component-preview--center">
-  <textarea className="textarea textarea--resize-y" placeholder="Enter your comments..." rows="5" cols="30"></textarea>
+<div class="textarea textarea--readonly">
+  <textarea class="textarea__field" readonly>Value</textarea>
 </div>
 
-```html
-<textarea
-  class="textarea textarea--resize-y"
-  placeholder="Enter your comments..."
-  rows="5"
-  cols="30"
-></textarea>
+<div class="textarea">
+  <textarea class="textarea__field" disabled>Value</textarea>
+</div>
 ```
-
-## Accessibility
-
-- **Labels**: Always ensure every textarea has an associated label. For floating labels, use the `for` attribute on the label and `id` on the textarea.
-- **Focus**: The component uses `.focus-visible` to show a primary colored border when focused via keyboard.
-- **Disabled**: Disabled textareas have reduced opacity and `not-allowed` cursor.
-
-## CSS Custom Properties
-
-| Property                  | Description          |
-| ------------------------- | -------------------- |
-| `--text-base`             | Font size reference  |
-| `--font-medium`           | Font weight          |
-| `--color-secondary`       | Default border color |
-| `--color-secondary-hover` | Hover border color   |
-| `--color-primary`         | Focus border color   |
-| `--color-error`           | Error state color    |
-| `--color-success`         | Success state color  |
