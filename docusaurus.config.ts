@@ -76,11 +76,11 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Components",
           items: [
             {
               label: "Tutorial",
-              to: "/docs/intro",
+              to: "/",
             },
           ],
         },
