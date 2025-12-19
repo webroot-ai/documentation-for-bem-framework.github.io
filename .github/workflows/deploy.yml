@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
           submodules: true
           # A Personal Access Token (PAT) is required to checkout private submodules
-          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: Install dependencies
         run: npm ci
