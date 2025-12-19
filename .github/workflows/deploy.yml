@@ -16,9 +16,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          submodules: true
+          submodules: recursive
           # A Personal Access Token (PAT) is required to checkout private submodules
           token: ${{ secrets.GH_PAT }}
+
+      - name: Debug submodule URL
+        run: |
+          cat .gitmodules
+          git config --get --list
 
       - name: Install dependencies
         run: npm ci
